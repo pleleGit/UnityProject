@@ -9,6 +9,7 @@ public class PursueBehaviour : MonoBehaviour
     public float maxAcceleration = 3.5f;
     public float maxVelocity = 2.5f;  // same for each axis
     public float maxTime = 2f;  // maximum allowed time to reach current target
+    public bool pauseOnTouch = true;
 
     private Vector3 velocity;
     private bool isPaused = false;
@@ -33,7 +34,7 @@ public class PursueBehaviour : MonoBehaviour
             this.velocity.x = Mathf.Clamp(this.velocity.x, -maxVelocity, maxVelocity);
             this.velocity.y = Mathf.Clamp(this.velocity.y, -maxVelocity, maxVelocity);
             this.velocity.z = Mathf.Clamp(this.velocity.z, -maxVelocity, maxVelocity);
-            this.PauseOneTouch(ref targetParticle);
+            if (this.pauseOnTouch) this.PauseOneTouch(ref targetParticle);
         }
         else
         {

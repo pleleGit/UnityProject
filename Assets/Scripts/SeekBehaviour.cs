@@ -12,6 +12,7 @@ public class SeekBehaviour : MonoBehaviour
 
     private Vector3 velocity;
     private bool isPaused = false;
+    public bool pauseOnTouch = true;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class SeekBehaviour : MonoBehaviour
             this.velocity.x = Mathf.Clamp(this.velocity.x, -maxVelocity, maxVelocity);
             this.velocity.y = Mathf.Clamp(this.velocity.y, -maxVelocity, maxVelocity);
             this.velocity.z = Mathf.Clamp(this.velocity.z, -maxVelocity, maxVelocity);
+            if (this.pauseOnTouch) this.PauseOneTouch(ref targetParticle);
         }
         else
         { 
