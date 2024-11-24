@@ -66,6 +66,7 @@ public class BoidSupervisorBehaviour : MonoBehaviour
 
             // Spawn the boid and store it in the array
             GameObject boid = Instantiate(boidPrefab, randomPosition, Quaternion.identity);  // instantiate with identity rotation
+            boid.name = boidPrefab.name + i;
             boids[i] = boid;
         }
     }
